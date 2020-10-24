@@ -1,5 +1,5 @@
 
-from math import pi,sin,cos,exp
+from numpy import pi,sin,cos,exp
 import numpy as np
 from function import *
 from PIXMATSIZE2 import PIXMATSIZE
@@ -21,10 +21,12 @@ def eva(lgslist,fov, atmlist, aperture):
     height = atmlist[:, 0]
     # dcn2 = profdata[indx].reshape((100,2))[:,1]
     dcn2 = atmlist[:, 1]
-    windir = np.arange(100)* pi / 180
+    windir = atmlist[:, 3]* pi / 180
+    #print(atmlist[:, 3])
     wind = np.zeros([2,100])
-    v = np.arange(0,50,0.5)
+    v = atmlist[:, 2]
     ang06 = lgslist
+    #print(atmlist[:, 2])
 
     paola_start = time.time()
 
